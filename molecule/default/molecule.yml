@@ -1,0 +1,37 @@
+---
+dependency:
+  name: galaxy
+#driver:
+#  name: docker
+driver:
+   name: vagrant
+   provider:
+    name: libvirt
+lint:
+  name: yamllint
+platforms:
+  #- name: debian_9
+  #  image: debian:9
+  #  pull: yes
+  #  groups:
+  #   - grub
+  - name: grubcmdline-debian9
+    box: generic/debian9
+    groups:
+      - grub
+
+provisioner:
+  name: ansible
+  log: true
+  inventory:
+    group_vars:
+      grub:
+        user: qwe
+        username: qwe
+        GRUB_CMDLINE_LINUX_DEFAULT: "quiet"
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
