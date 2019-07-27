@@ -16,6 +16,9 @@ install:
 
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
+  # I'm using vagrant libvirt to test this role on localhost
+  # let's see if there are vmx cpu extensions on travis/aws hosts
+  - cat /proc/cpuinfo
   - cd ../
   - mv $ROLE_NAME richardskumat.$ROLE_NAME
   - cd richardskumat.$ROLE_NAME
