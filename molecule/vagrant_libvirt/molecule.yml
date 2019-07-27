@@ -2,23 +2,16 @@
 dependency:
   name: galaxy
 driver:
-  name: docker
-#driver:
-#   name: vagrant
-#   provider:
-#    name: libvirt
+   name: vagrant
+   provider:
+    name: libvirt
 lint:
   name: yamllint
 platforms:
-  - name: instance
-    image: "${MOLECULE_DISTRO:-debian:9}"
-    pull: yes
+  - name: grubcmdline-debian9
+    box: "${MOLECULE_DISTRO:-generic/debian9}"
     groups:
-     - grub
-  #- name: grubcmdline-debian9
-  #  box: generic/debian9
-  #  groups:
-  #    - grub
+      - grub
 
 provisioner:
   name: ansible
