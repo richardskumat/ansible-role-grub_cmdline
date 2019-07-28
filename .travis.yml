@@ -6,6 +6,8 @@ services: docker
 env:
   global:
     - ROLE_NAME: ansible-role-grub_cmdline
+    - GALAXY_USERNAME: richardskumat
+    - GALAXY_ROLENAME: ansible_role_grub_cmdline
   matrix:
     - MOLECULE_DISTRO: debian:9
     - MOLECULE_DISTRO: debian:10
@@ -16,14 +18,12 @@ install:
 
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
-  # I'm using vagrant libvirt to test this role on localhost
-  # let's see if there are vmx cpu extensions on travis/aws hosts
-  - cat /proc/cpuinfo
   - cd ../
-  - mv $ROLE_NAME richardskumat.$ROLE_NAME
-  - cd richardskumat.$ROLE_NAME
+  - mv $ROLE_NAME $GALAXY_USERNAME.$GALAXY_ROLENAME
+  - cd $GALAXY_USERNAME.$GALAXY_ROLENAME
   - docker -v
   - id
+
 
 script:
   # Run tests.
