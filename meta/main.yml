@@ -11,12 +11,9 @@ galaxy_info:
 
 
   platforms:
-   - name: Debian
-   - name: Ubuntu
-
+    - name: Debian
+    - name: Ubuntu
 
   galaxy_tags: []
 
-
 dependencies: []
-

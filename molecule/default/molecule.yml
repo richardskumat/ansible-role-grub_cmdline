@@ -3,22 +3,16 @@ dependency:
   name: galaxy
 driver:
   name: docker
-#driver:
-#   name: vagrant
-#   provider:
-#    name: libvirt
 lint:
   name: yamllint
+  options:
+    config-file: molecule/default/yaml-lint.yml
 platforms:
   - name: instance
     image: "${MOLECULE_DISTRO:-debian:9}"
-    pull: yes
+    pull: true
     groups:
-     - grub
-  #- name: grubcmdline-debian9
-  #  box: generic/debian9
-  #  groups:
-  #    - grub
+      - grub
 
 provisioner:
   name: ansible
@@ -31,6 +25,8 @@ provisioner:
         GRUB_CMDLINE_LINUX_DEFAULT: "quiet"
   lint:
     name: ansible-lint
+scenario:
+  name: default
 verifier:
   name: testinfra
   lint:

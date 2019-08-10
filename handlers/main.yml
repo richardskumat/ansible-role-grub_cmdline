@@ -1,7 +1,7 @@
 ---
 - name: update-grub
   command: /usr/sbin/update-grub
-  become: yes
+  become: 'yes'
   listen: "update-grub"
   # skip for docker ct as there's no point in running
   # update-grub in there

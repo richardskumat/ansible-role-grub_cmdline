@@ -2,17 +2,18 @@
 dependency:
   name: galaxy
 driver:
-   name: vagrant
-   provider:
+  name: vagrant
+  provider:
     name: libvirt
 lint:
   name: yamllint
+  options:
+    config-file: molecule/default/yaml-lint.yml
 platforms:
-  - name: grubcmdline-debian9
-    box: "${MOLECULE_DISTRO:-generic/debian9}"
+  - name: instance
+    box: "${MOLECULE_DISTRO:-debian/stretch64}"
     groups:
       - grub
-
 provisioner:
   name: ansible
   log: true
@@ -24,6 +25,8 @@ provisioner:
         GRUB_CMDLINE_LINUX_DEFAULT: "quiet"
   lint:
     name: ansible-lint
+scenario:
+  name: vagrant_libvirt
 verifier:
   name: testinfra
   lint:

@@ -3,14 +3,14 @@
   apt:
    name: grub2-common
    state: present
-   update_cache: yes
-  become: yes
+   update_cache: 'yes'
+  become: 'yes'
 
 - name: Template /etc/default/grub
   template:
    src: templates/grub.j2
    dest: /etc/default/grub
    mode: 0644
-   backup: yes
-  become: yes
+   backup: 'yes'
+  become: 'yes'
   notify: "update-grub"
