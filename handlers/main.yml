@@ -5,4 +5,5 @@
   listen: "update-grub"
   # skip for docker ct as there's no point in running
   # update-grub in there
+  # /usr/sbin/grub-probe: error: failed to get canonical path of `overlay'
   when: ansible_virtualization_type != "docker"
