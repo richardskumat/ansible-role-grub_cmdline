@@ -45,4 +45,3 @@ test_d11:
     MOLECULE_DISTRO: "qwe1/docker-debian:11-molecule"
   script:
     - molecule test
-
