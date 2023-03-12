@@ -1,6 +1,6 @@
 ---
 - name: Update-grub
-  command: /usr/sbin/update-grub
+  ansible.builtin.command: /usr/sbin/update-grub
   become: 'yes'
   listen: "update-grub"
   # skip for docker ct as there's no point in running

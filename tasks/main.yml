@@ -1,5 +1,5 @@
 ---
 - name: Include overrides specific to Debian.
-  include_tasks: "{{ ansible_os_family }}.yml"
+  ansible.builtin.include_tasks: "{{ ansible_os_family }}.yml"
   when:
     - ansible_os_family == 'Debian'

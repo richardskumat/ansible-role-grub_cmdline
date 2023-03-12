@@ -1,12 +1,12 @@
 ---
 - name: 'Ensure grub2-common exists'
-  apt:
+  ansible.builtin.apt:
    name: grub2-common
    state: present
    update_cache: 'true'
 
-- name: 'Template /etc/default/grub'
-  template:
+- name: Template /etc/default/grub
+  ansible.builtin.template:
    src: templates/grub.j2
    dest: /etc/default/grub
    mode: 0644
