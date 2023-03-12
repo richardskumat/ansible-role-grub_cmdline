@@ -11,8 +11,18 @@ None.
 Role Variables
 --------------
 
+On 2023-03-12, this default variable has been changed to the lower
+case version of its former self. Changed due to ansible-lint:
+
+'var-naming: File defines variable 'GRUB_CMDLINE_LINUX_DEFAULT' that violates variable naming standards'
+
+```bash
+# changes GRUB_CMDLINE_LINUX_DEFAULT to lowercase word
+echo 'GRUB_CMDLINE_LINUX_DEFAULT' | tr [:upper:] [:lower:]
 ```
-GRUB_CMDLINE_LINUX_DEFAULT: "quiet"
+
+```
+grub_cmdline_linux_default: "quiet"
 ```
 
 The following var is used in templates/grub.j2. I use it as I need different

@@ -1,5 +1,5 @@
 ---
-- name: update-grub
+- name: Update-grub
   command: /usr/sbin/update-grub
   become: 'yes'
   listen: "update-grub"

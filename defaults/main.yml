@@ -1,2 +1,2 @@
 ---
-GRUB_CMDLINE_LINUX_DEFAULT: "quiet"
+grub_cmdline_linux_default: "quiet"
