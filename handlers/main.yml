@@ -3,6 +3,8 @@
   ansible.builtin.command: /usr/sbin/update-grub
   become: 'yes'
   listen: "update-grub"
+  register: ug_output
+  changed_when: ug_output != 0
   # skip for docker ct as there's no point in running
   # update-grub in there
   # /usr/sbin/grub-probe: error: failed to get canonical path of `overlay'
